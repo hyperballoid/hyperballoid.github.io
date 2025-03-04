@@ -1,0 +1,115 @@
+/* Загальні стилі */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Шапка */
+header {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+header h1 {
+    font-size: 48px;
+    margin: 0;
+}
+header p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+nav {
+    margin-top: 20px;
+}
+nav a {
+    color: #00b7ff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Про мене */
+.about {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+.about h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+.about p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Галерея */
+.gallery {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.gallery h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+}
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.project {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.project:hover {
+    transform: translateY(-5px);
+}
+.project img, .project video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.project h3 {
+    font-size: 20px;
+    margin: 15px 15px 5px;
+}
+.project p {
+    font-size: 14px;
+    color: #666;
+    margin: 0 15px 15px;
+}
+
+/* Футер */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+footer a {
+    color: #00b7ff;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптація для мобільних */
+@media (max-width: 600px) {
+    header h1 { font-size: 32px; }
+    nav a { display: block; margin: 10px 0; }
+    .projects { grid-template-columns: 1fr; }
+}
