@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфоліо Сергія - Художник</title>
+    <title>Портфоліо Івана - Художник</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Іконки Font Awesome для соцмереж -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Шапка -->
+    <!-- Шапка з фото -->
     <header>
-        <h1>Сергійє</h1>
+        <img src="assets/author-photo.jpg" alt="Фото Івана" class="author-photo">
+        <h1>Іван</h1>
         <p>Художник: традиційні техніки та цифрова графіка</p>
         <nav>
             <a href="#acrylic-watercolor">Акрил, олія, акварель</a>
@@ -30,14 +33,29 @@
         <h2>Акрил, олія, акварель</h2>
         <div class="projects">
             <div class="project">
-                <img src="assets/paint/0003.jpg" alt="Олівець">
-                <h3>Акрил</h3>
+                <img src="assets/acrylic-watercolor/oil-painting1.png" alt="Олійний пейзаж">
+                <h3>Олійний пейзаж</h3>
                 <p>Олія, полотно, 2024</p>
             </div>
             <div class="project">
-                <img src="assets/paint/0001.jpg" alt="Акварельний портрет">
-                <h3>Українка</h3>
-                <p>Олія, полотно 70×50 </p>
+                <img src="assets/acrylic-watercolor/watercolor1.png" alt="Акварельний портрет">
+                <h3>Акварельний портрет</h3>
+                <p>Акварель, папір, 2025</p>
+            </div>
+            <div class="project">
+                <img src="assets/acrylic-watercolor/acrylic-flower.png" alt="Акрилові квіти">
+                <h3>Акрилові квіти</h3>
+                <p>Акрил, полотно, 2024</p>
+            </div>
+            <div class="project">
+                <img src="assets/acrylic-watercolor/oil-sea.png" alt="Морський пейзаж">
+                <h3>Морський пейзаж</h3>
+                <p>Олія, полотно, 2025</p>
+            </div>
+            <div class="project">
+                <img src="assets/acrylic-watercolor/watercolor-bird.png" alt="Птах аквареллю">
+                <h3>Птах аквареллю</h3>
+                <p>Акварель, папір, 2024</p>
             </div>
         </div>
     </section>
@@ -47,14 +65,29 @@
         <h2>Графічний олівець</h2>
         <div class="projects">
             <div class="project">
-                <img src="assets/pencil/013.jpg" alt="Ескіз портрета">
-                <h3>Ескіз</h3>
+                <img src="assets/pencil/sketch1.png" alt="Ескіз портрета">
+                <h3>Ескіз портрета</h3>
                 <p>Олівець, папір, 2024</p>
             </div>
             <div class="project">
-                <img src="assets/pencil/014.jpg" alt="Ескіз тварини">
-                <h3>Ескіз</h3>
+                <img src="assets/pencil/sketch2.png" alt="Ескіз тварини">
+                <h3>Ескіз тварини</h3>
                 <p>Олівець, папір, 2025</p>
+            </div>
+            <div class="project">
+                <img src="assets/pencil/sketch3.png" alt="Архітектурний ескіз">
+                <h3>Архітектурний ескіз</h3>
+                <p>Олівець, папір, 2024</p>
+            </div>
+            <div class="project">
+                <img src="assets/pencil/sketch4.png" alt="Ескіз руки">
+                <h3>Ескіз руки</h3>
+                <p>Олівець, папір, 2025</p>
+            </div>
+            <div class="project">
+                <img src="assets/pencil/sketch5.png" alt="Пейзаж олівцем">
+                <h3>Пейзаж олівцем</h3>
+                <p>Олівець, папір, 2024</p>
             </div>
         </div>
     </section>
@@ -69,19 +102,45 @@
                 <p>Leonardo AI, 2025</p>
             </div>
             <div class="project">
-                <video controls>
-                    <source src="assets/digital/101.mp4" type="video/mp4">
-                </video>
-                <h3>Підводна анімаціч</h3>
-                <p> ШІ 2025</p>
+                <img src="assets/digital/ai-art2.png" alt="Фентезі дракон">
+                <h3>Фентезі дракон</h3>
+                <p>Leonardo AI, 2025</p>
+            </div>
+            <div class="project">
+                <img src="assets/digital/ai-art3.png" alt="Кібермісто">
+                <h3>Кібермісто</h3>
+                <p>Leonardo AI, 2024</p>
+            </div>
+            <div class="project">
+                <img src="assets/digital/ai-art4.png" alt="Абстрактна форма">
+                <h3>Абстрактна форма</h3>
+                <p>Leonardo AI, 2025</p>
+            </div>
+            <div class="project">
+                <img src="assets/digital/ai-art5.png" alt="Планетний пейзаж">
+                <h3>Планетний пейзаж</h3>
+                <p>Leonardo AI, 2024</p>
             </div>
         </div>
     </section>
 
-    <!-- Футер -->
+    <!-- Посилання на відео -->
+    <section class="video-link">
+        <h2>Мої анімації</h2>
+        <p>Перегляньте приклад моєї роботи: <a href="assets/digital/video1.mp4">Космічна анімація</a></p>
+    </section>
+
+    <!-- Футер із контактами -->
     <footer>
-        <p>Зв’яжіться зі мною: <a href="mailto:hyperballoid@ukr.net">ivan@example.com</a> | 
-        <a href="https://tiktok.com/hyperballoid_">TikTok</a></p>
+        <p>Зв’яжіться зі мною:</p>
+        <p>Email: <a href="mailto:ivan@example.com">ivan@example.com</a></p>
+        <p>Телефон: <a href="tel:+380123456789">+380 123 456 789</a></p>
+        <div class="social-icons">
+            <a href="https://facebook.com/ivan" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/ivan" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/380123456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://tiktok.com/@ivan" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
     </footer>
 </body>
 </html>
