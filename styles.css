@@ -13,6 +13,13 @@ header {
     text-align: center;
     padding: 40px 20px;
 }
+.author-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
 header h1 {
     font-size: 48px;
     margin: 0;
@@ -63,7 +70,7 @@ nav a:hover {
 }
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
 }
 .project {
@@ -82,13 +89,30 @@ nav a:hover {
     display: block;
 }
 .project h3 {
-    font-size: 20px;
+    font-size: 18px;
     margin: 15px 15px 5px;
 }
 .project p {
     font-size: 14px;
     color: #666;
     margin: 0 15px 15px;
+}
+
+/* Секція відео */
+.video-link {
+    text-align: center;
+    margin: 40px 0;
+}
+.video-link h2 {
+    font-size: 28px;
+    color: #1a1a1a;
+}
+.video-link a {
+    color: #00b7ff;
+    text-decoration: none;
+}
+.video-link a:hover {
+    text-decoration: underline;
 }
 
 /* Футер */
@@ -106,10 +130,23 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+.social-icons {
+    margin-top: 10px;
+}
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+.social-icons a:hover {
+    color: #00b7ff;
+}
 
 /* Адаптація для мобільних */
 @media (max-width: 600px) {
     header h1 { font-size: 32px; }
+    .author-photo { width: 100px; height: 100px; }
     nav a { display: block; margin: 10px 0; }
     .projects { grid-template-columns: 1fr; }
 }
