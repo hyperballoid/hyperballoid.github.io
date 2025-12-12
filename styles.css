@@ -1,152 +1,128 @@
- /* Загальні стилі */
+/* ====== ROOT ====== */
+:root {
+  --bg: #F4F1EC;        /* теплий білий */
+  --text: #3B3A36;      /* теплий графіт */
+  --dark: #2F3A2E;      /* темний оливковий */
+  --accent: #8A6A4F;    /* мідно-коричневий */
+}
+
+/* ====== BASE ====== */
+* {
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Шапка */
-header {
-    background-color: #1a1a1a;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-}
-.author-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    object-fit: cover;
-}
-header h1 {
-    font-size: 48px;
-    margin: 0;
-}
-header p {
-    font-size: 18px;
-    margin: 10px 0;
-}
-nav {
-    margin-top: 20px;
-}
-nav a {
-    color: #00b7ff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 16px;
-}
-nav a:hover {
-    text-decoration: underline;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-/* Про мене */
-.about {
-    max-width: 800px;
-    margin: 40px auto;
-    text-align: center;
+/* ====== HERO ====== */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10vw;
 }
-.about h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
+
+.hero-inner {
+  max-width: 720px;
 }
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* ====== SECTIONS ====== */
+section {
+  padding: 12vh 10vw;
+}
+
+section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  margin-bottom: 4rem;
+  color: var(--dark);
+}
+
+/* ====== GALLERY ====== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+}
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  border-radius: 2px;
+  transition: transform 0.6s ease;
+}
+
+figure img:hover {
+  transform: scale(1.015);
+}
+
+figcaption {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ====== ABOUT ====== */
+.about-inner {
+  max-width: 640px;
+}
+
 .about p {
-    font-size: 16px;
-    line-height: 1.5;
+  font-size: 1.05rem;
 }
 
-/* Галерея */
-.gallery {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-.gallery h2 {
-    font-size: 32px;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #1a1a1a;
-}
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-.project {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-.project:hover {
-    transform: translateY(-5px);
-}
-.project img, .project video {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-.project h3 {
-    font-size: 18px;
-    margin: 15px 15px 5px;
-}
-.project p {
-    font-size: 14px;
-    color: #666;
-    margin: 0 15px 15px;
+/* ====== CONTACT ====== */
+.contact a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
 }
 
-/* Секція відео */
-.video-link {
-    text-align: center;
-    margin: 40px 0;
-}
-.video-link h2 {
-    font-size: 28px;
-    color: #1a1a1a;
-}
-.video-link a {
-    color: #00b7ff;
-    text-decoration: none;
-}
-.video-link a:hover {
-    text-decoration: underline;
+.contact a:hover {
+  border-bottom: 1px solid var(--accent);
 }
 
-/* Футер */
+/* ====== FOOTER ====== */
 footer {
-    background-color: #1a1a1a;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-}
-footer a {
-    color: #00b7ff;
-    text-decoration: none;
-}
-footer a:hover {
-    text-decoration: underline;
-}
-.social-icons {
-    margin-top: 10px;
-}
-.social-icons a {
-    color: white;
-    font-size: 20px;
-    margin: 0 20px;
-    transition: color 0.3s;
-}
-.social-icons a:hover {
-    color: #00b7ff;
+  padding: 4rem 10vw;
+  font-size: 0.8rem;
+  opacity: 0.6;
 }
 
-/* Адаптація для мобільних */
-@media (max-width: 600px) {
-    header h1 { font-size: 32px; }
-    .author-photo { width: 100px; height: 100px; }
-    nav a { display: block; margin: 10px 0; }
-    .projects { grid-template-columns: 1fr; }
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  section {
+    padding: 10vh 6vw;
+  }
+
+  .hero {
+    padding: 0 6vw;
+  }
 }
