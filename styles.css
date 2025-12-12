@@ -1,183 +1,146 @@
 /* Загальні стилі */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'EB Garamond', serif; /* Garamond для elegance, Google Fonts */
-    background-color: #E1D4C1; /* Soft autumn background */
-    color: #2B1C10; /* Deep text for contrast 4.5:1+ */
-    line-height: 1.6;
-    font-size: 16px; /* Base for readability (Miller’s Law: 7±2 lines) */
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* 12-column grid (Bootstrap-inspired, modular 2026) */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 40px; /* Gutters for Gestalt proximity */
-    padding: 0 120px; /* Margins for breathing space */
-}
-
-/* Header (fixed for scroll, dark earthy trend) */
+/* Шапка */
 header {
-    background-color: #2B1C10; /* Deep text color for minimalism */
-    color: #E1D4C1;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    padding: 20px 0;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+.author-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+header h1 {
+    font-size: 48px;
+    margin: 0;
+}
+header p {
+    font-size: 18px;
+    margin: 10px 0;
 }
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-nav h1 {
-    font-size: 28px; /* Golden ratio to body (1:1.618) */
-    font-weight: bold;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px; /* Proximity for navigation group */
+    margin-top: 20px;
 }
 nav a {
-    color: #E1D4C1;
-    text-decoration: none;
-    transition: color 0.3s;
+    color: #00b7ff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
 }
 nav a:hover {
-    color: #8D6F57; /* Accent for hover animation */
+    text-decoration: underline;
 }
 
-/* Hero (full-width, biophilic AR hint) */
-#hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(rgba(139,111,87,0.2), rgba(107,142,35,0.1)), url('hero-watercolor.jpg') center/cover; /* Parchment + leaf texture */
-    text-align: center;
+/* Про мене */
+.about {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
 }
-.hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-in; /* Subtle AR-like animation */
+.about h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
 }
-.hero-content p {
-    font-size: 18px;
+.about p {
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Галерея */
+.gallery {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
-
-/* Sections (modular, 2026 sustainable) */
-section {
-    padding: 80px 0; /* Internal spacing for flow */
-    max-width: 1200px;
-    margin: 0 auto;
+.gallery h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1a1a1a;
 }
-h2 {
-    font-size: 32px;
-    color: #8D6F57; /* Accent for hierarchy */
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-/* Gallery (3-column for rule of thirds) */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for Miller’s Law (7±2 elements) */
-    gap: 40px; /* Gutters for Gestalt proximity */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 .project {
-    background-color: #F5E8D3; /* Light beige for soft shadows */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(107,142,35,0.1); /* Subtle biophilic shadow */
-    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 .project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(107,142,35,0.2); /* Leaf animation hint */
+    transform: translateY(-5px);
 }
-.project img {
-    width: 100%;
-    height: auto;
+.project img, .project video {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 .project h3 {
-    font-size: 20px;
-    margin: 15px;
+    font-size: 18px;
+    margin: 15px 15px 5px;
 }
 .project p {
-    font-size: 14px;
-    color: #6B8E23; /* Olive for accent */
-    margin: 0 15px 15px;
+    font-size: 14px;
+    color: #666;
+    margin: 0 15px 15px;
 }
 
-/* Process (step-by-step, modular) */
-#process p {
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.8;
+/* Секція відео */
+.video-link {
+    text-align: center;
+    margin: 40px 0;
+}
+.video-link h2 {
+    font-size: 28px;
+    color: #1a1a1a;
+}
+.video-link a {
+    color: #00b7ff;
+    text-decoration: none;
+}
+.video-link a:hover {
+    text-decoration: underline;
 }
 
-/* Contact (simple form, accessible) */
-#contact form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-#contact input, #contact textarea {
-    padding: 10px;
-    border: 1px solid #8D6F57;
-    border-radius: 5px;
-    background: #F5E8D3;
-    color: #2B1C10;
-}
-#contact button {
-    padding: 10px;
-    background: #6B8E23;
-    color: #E1D4C1;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-#contact button:hover {
-    background: #4A5C4E; /* Darker olive for hover */
-}
-#contact p {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Footer */
+/* Футер */
 footer {
-    background: #2B1C10;
-    color: #E1D4C1;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
 }
-
-/* Responsive (media queries for 2026 trends) */
-@media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-    #hero h1 {
-        font-size: 36px;
-    }
+footer a {
+    color: #00b7ff;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+.social-icons {
+    margin-top: 10px;
+}
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    margin: 0 20px;
+    transition: color 0.3s;
+}
+.social-icons a:hover {
+    color: #00b7ff;
 }
 
 /* Адаптація для мобільних */
