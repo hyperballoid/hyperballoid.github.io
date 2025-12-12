@@ -1,108 +1,276 @@
-<!DOCTYPE html>
-<html lang="uk">
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сергій Кибальник | Портфоліо Художника</title>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080') center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #projects .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .project-card h3 {
+            margin: 1rem 0;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        #about {
+            background: #f4f4f4;
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        #contact input, #contact textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #contact button {
+            padding: 0.8rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #contact button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            #hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>Сергій Кибальник</h1>
-            <ul>
-                <li><a href="#hero">Головна</a></li>
-                <li><a href="#about">Про мене</a></li>
-                <li><a href="#gallery">Галерея</a></li>
-                <li><a href="#process">Процес</a></li>
-                <li><a href="#contact">Контакти</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header>
+        <nav>
+            <h1>My Portfolio</h1>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Художник з 25+ Роками Досвіду</h1>
-            <p>Акварель, акрил, вектор — біофільне мистецтво для душі</p>
-        </div>
-    </section>
+    <section id="hero">
+        <div>
+            <h1>Welcome to My Portfolio</h1>
+            <p>Showcasing my projects and skills</p>
+        </div>
+    </section>
 
-    <section id="about">
-        <h2>Про мене</h2>
-        <p>45-річний художник-кераміст (МКТ Миргород, 2000). Досвід: дизайнер в Епіцентр К, декоратор ЦУМ, бригадир Юнівест. Створюю акварельні пейзажі, портрети, логотипи, етикетки, SVG для ЧПУ. Ручна робота, без AI.</p>
-    </section>
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300" alt="Project 1">
+                <h3>Project One</h3>
+                <p>A brief description of project one.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300" alt="Project 2">
+                <h3>Project Two</h3>
+                <p>A brief description of project two.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300" alt="Project 3">
+                <h3>Project Three</h3>
+                <p>A brief description of project three.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
 
-    <section id="gallery">
-        <h2>Галерея робіт</h2>
-        <div class="gallery-grid">
-            <!-- Пейзажі -->
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Рівненська вежа">
-                <h3>Пейзажі</h3>
-                <p>"Рівненська вежа" | Акварель, А5, літо 2025</p>
-            </div>
-            <!-- Портрети -->
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Дівчина з Рівного">
-                <h3>Портрети</h3>
-                <p>"Дівчина з Рівного" | Акварель, А5, літо 2025</p>
-            </div>
-            <!-- Дизайн/логотипи -->
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Логотип">
-                <h3>Дизайн та логотипи</h3>
-                <p>Векторний логотип для бренду</p>
-            </div>
-            <!-- 3D графіка -->
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="3D модель">
-                <h3>3D графіка</h3>
-                <p>3D-модель біофільного елементу</p>
-            </div>
-        </div>
-    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I'm a passionate developer with experience in web development. My skills include HTML, CSS, JavaScript, and more. I love creating clean, user-friendly websites and applications.</p>
+    </section>
 
-    <section id="process">
-        <h2>Процес роботи</h2>
-        <p>Від ескізу олівцем до акварелі, акрилу на полотні чи вектора в Illustrator/CorelDRAW. Приклад: акварельний пейзаж → вектор для ЧПУ.</p>
-    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
-    <section id="contact">
-        <h2>Контакти</h2>
-        <form>
-            <input type="text" placeholder="Ім'я" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Повідомлення" rows="5" required></textarea>
-            <button type="submit">Відправити</button>
-        </form>
-        <p>Email: hyperballoid@ukr.net | Телефон: +380633509362 | Telegram: @hyperballoid</p>
-    </section>
+    <footer>
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+    </footer>
 
-    <footer>
-        <p>&copy; 2025 Сергій Кибальник. Усі права захищено.</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Subtle leaf animation on hover (CSS + JS for 2026 AR hint)
-        document.querySelectorAll('.project').forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.style.boxShadow = '0 4px 12px rgba(107,142,35,0.2)';
-            });
-            item.addEventListener('mouseout', () => {
-                item.style.boxShadow = '0 2px 8px rgba(107,142,35,0.1)';
-            });
-        });
-    </script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
