@@ -103,7 +103,7 @@ section {
 /* Новий контейнер тільки для картинки */
 .technique-card-image-wrapper {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 5;
   overflow: hidden; /* Обрізаємо зум */
   background: var(--bg-secondary);
   border-radius: 4px; /* Опціонально, для м'якості */
@@ -129,7 +129,7 @@ section {
 
 .technique-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 5;
   object-fit: cover;
   background: var(--bg-secondary);
   transition: transform 0.4s ease; /* Плавний зум при hover */
