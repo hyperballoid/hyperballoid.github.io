@@ -207,5 +207,7 @@ footer {
 @media (max-width: 600px) {
   .hero h1 {
     font-size: 2.2rem;
-  }
+}
+.technique-card:hover img {
+  transform: scale(1.08); /* Легкий зум при наведенні */
 }
