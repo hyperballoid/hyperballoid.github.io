@@ -97,6 +97,34 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  overflow: hidden; /* Додаємо: ховаємо частину, що виходить за межі при зумі */
+}
+
+/* Новий контейнер тільки для картинки */
+.technique-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden; /* Обрізаємо зум */
+  background: var(--bg-secondary);
+  border-radius: 4px; /* Опціонально, для м'якості */
+}
+
+.technique-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Трохи повільніше для плавності */
+  display: block;
+}
+
+/* Зум тільки при hover на всю картку (через .technique-card-link) */
+.technique-card-link:hover img {
+  transform: scale(1.10); /* Можна 1.10–1.15 для сильнішого ефекту */
+}
+
+/* Підйом всієї картки при hover (залишаємо, але тепер без "стрибків" тексту) */
+.technique-card-link:hover {
+  transform: translateY(-8px);
 }
 
 .technique-card img {
