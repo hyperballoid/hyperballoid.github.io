@@ -1,3 +1,4 @@
+<DOCUMENT filename="styles.css">
 /* ================= RESET ================= */
 * {
   margin: 0;
@@ -101,8 +102,13 @@ section {
 .technique-card img {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: contain;
+  object-fit: cover;
   background: var(--bg-secondary);
+  transition: transform 0.4s ease; /* Плавний зум при hover */
+}
+
+.technique-card:hover img {
+  transform: scale(1.08); /* Легкий зум при наведенні */
 }
 
 .technique-card h3 {
@@ -203,12 +209,30 @@ footer {
   color: var(--text-muted);
 }
 
+/* ================= LINK STYLES ================= */
+.technique-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.technique-card-link:hover {
+  transform: translateY(-8px); /* Підйом картки при hover */
+}
+
+.technique-card-link:hover .view-link {
+  text-decoration: underline;
+}
+
+.view-link {
+  color: var(--accent); /* Акцентний колір для посилання */
+}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 600px) {
   .hero h1 {
     font-size: 2.2rem;
+  }
 }
-  
-.technique-card:hover img {
-  transform: scale(1.08); /* Легкий зум при наведенні */
-}
+</DOCUMENT>
