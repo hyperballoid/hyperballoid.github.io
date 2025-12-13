@@ -1,108 +1,88 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сергій Кибальник | Портфоліо Художника</title>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Sergii Kybalnyk — Illustrator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <h1>Сергій Кибальник</h1>
-            <ul>
-                <li><a href="#hero">Головна</a></li>
-                <li><a href="#about">Про мене</a></li>
-                <li><a href="#gallery">Галерея</a></li>
-                <li><a href="#process">Процес</a></li>
-                <li><a href="#contact">Контакти</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Художник з 25+ Роками Досвіду</h1>
-            <p>Акварель, акрил, вектор — біофільне мистецтво для душі</p>
-        </div>
-    </section>
+<nav class="lang-switch">
+  <a href="/">EN</a> / <a href="/ua/">UA</a>
+</nav>
 
-    <section id="about">
-        <h2>Про мене</h2>
-        <p>45-річний художник-кераміст (МКТ Миргород, 2000). Досвід: дизайнер в Епіцентр К, декоратор ЦУМ, бригадир Юнівест. Створюю акварельні пейзажі, портрети, логотипи, етикетки, SVG для ЧПУ. Ручна робота, без AI.</p>
-    </section>
+<header class="hero">
+  <div class="hero-content">
+    <h1>Sergii Kybalnyk</h1>
+    <p class="hero-subtitle">
+      Contemporary commercial illustrator working with pencil, paint and digital media.
+    </p>
+    <p class="skills">
+      Commercial illustration · Pencil · Watercolor · Digital media · Visual storytelling
+    </p>
+  </div>
+</header>
 
-    <section id="gallery">
-        <h2>Галерея робіт</h2>
-        <div class="gallery-grid">
-            <!-- Пейзажі -->
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Рівненська вежа">
-                <h3>Пейзажі</h3>
-                <p>"Рівненська вежа" | Акварель, А5, літо 2025</p>
-            </div>
-            <!-- Портрети -->
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Дівчина з Рівного">
-                <h3>Портрети</h3>
-                <p>"Дівчина з Рівного" | Акварель, А5, літо 2025</p>
-            </div>
-            <!-- Дизайн/логотипи -->
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Логотип">
-                <h3>Дизайн та логотипи</h3>
-                <p>Векторний логотип для бренду</p>
-            </div>
-            <!-- 3D графіка -->
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="3D модель">
-                <h3>3D графіка</h3>
-                <p>3D-модель біофільного елементу</p>
-            </div>
-        </div>
-    </section>
+<section class="selected-section">
+  <h2>Selected Works</h2>
+</section>
 
-    <section id="process">
-        <h2>Процес роботи</h2>
-        <p>Від ескізу олівцем до акварелі, акрилу на полотні чи вектора в Illustrator/CorelDRAW. Приклад: акварельний пейзаж → вектор для ЧПУ.</p>
-    </section>
+<section class="techniques-section">
+  <h2>Techniques</h2>
 
-    <section id="contact">
-        <h2>Контакти</h2>
-        <form>
-            <input type="text" placeholder="Ім'я" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Повідомлення" rows="5" required></textarea>
-            <button type="submit">Відправити</button>
-        </form>
-        <p>Email: hyperballoid@ukr.net | Телефон: +380633509362 | Telegram: @hyperballoid</p>
-    </section>
+  <div class="techniques-grid">
 
-    <footer>
-        <p>&copy; 2025 Сергій Кибальник. Усі права захищено.</p>
-    </footer>
+    <div class="technique-card">
+      <img src="assets/pencil/cover.jpg">
+      <h3>Pencil Illustration</h3>
+      <p>Academic drawing and commercial illustration.</p>
+      <a href="pencil.html">View series →</a>
+    </div>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <div class="technique-card">
+      <img src="assets/paint/cover.jpg">
+      <h3>Paint / Watercolor</h3>
+      <p>Expressive and controlled paint-based work.</p>
+      <a href="paint.html">View series →</a>
+    </div>
 
-        // Subtle leaf animation on hover (CSS + JS for 2026 AR hint)
-        document.querySelectorAll('.project').forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.style.boxShadow = '0 4px 12px rgba(107,142,35,0.2)';
-            });
-            item.addEventListener('mouseout', () => {
-                item.style.boxShadow = '0 2px 8px rgba(107,142,35,0.1)';
-            });
-        });
-    </script>
+    <div class="technique-card">
+      <img src="assets/digital/cover.jpg">
+      <h3>Digital Illustration</h3>
+      <p>Vector and raster solutions for commercial use.</p>
+      <a href="digital.html">View series →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="about-section">
+  <p>
+    Ukrainian illustrator with a background in decorative and applied arts.
+    Experienced in commissioned and editorial work.
+  </p>
+
+  <p class="bio-note">
+    I am a wounded veteran of the Russian–Ukrainian war.
+    This experience shaped my focus, responsibility, and resilience.
+  </p>
+</section>
+
+<section class="contact-section">
+  <h2>Contact</h2>
+  <p>
+    <a href="mailto:hyperballoid@ukr.net">hyperballoid@ukr.net</a><br>
+    <a href="https://instagram.com/hyperballoid" target="_blank">@hyperballoid</a>
+  </p>
+</section>
+
+<footer>
+  <p>© Sergii Kybalnyk</p>
+</footer>
+
 </body>
-</html> 
+</html>
