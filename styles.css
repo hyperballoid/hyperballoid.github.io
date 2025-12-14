@@ -1,26 +1,19 @@
-<DOCUMENT filename="styles.css">
-/* ================= RESET ================= */
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
 /* ================= VARIABLES ================= /
 :root {
---bg-main: #F3F0EA;        / 60% /
---bg-secondary: #E4DED4;   / 30% */
+--bg-main: #F3F0EA;        / 60% — основний фон /
+--bg-secondary: #D8D2C8;   / 30% — темніший для рамки, щоб виділяти світлі роботи */
 --border-soft: #D2CBC0;
 --accent: #9B7A5E;         /* 10% */
 --accent-dark: #2F3A32;
 --text-main: #2B2B28;
 --text-muted: #6E6A63;
 }
-/* ================= BASE ================= /
+/* ================= BASE ================= */
 body {
 font-family: 'Inter', sans-serif;
 background: var(--bg-main);
 color: var(--text-main);
-line-height: 1.6; / Базовий інтервал — змініть тут для всього сайту (наприклад, 1.5 для стиснення) */
+line-height: 1.6;
 }
 a {
 color: var(--accent);
@@ -73,7 +66,7 @@ display: grid;
 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 gap: 2.5rem;
 }
-/* ================= CARDS ================= */
+/* ================= CARDS (головна) ================= */
 .technique-card {
 background: var(--bg-main);
 border: 1px solid var(--border-soft);
@@ -85,10 +78,12 @@ overflow: hidden;
 }
 .technique-card-image-wrapper {
 width: 100%;
-aspect-ratio: 4 / 3; /* Базове горизонтальне для десктопу */
+aspect-ratio: 4 / 3;
 overflow: hidden;
 background: var(--bg-secondary);
+border: 1px solid var(--border-soft);
 border-radius: 4px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Легка тінь для виділення */
 }
 .technique-card img {
 width: 100%;
@@ -107,9 +102,9 @@ font-size: 1.35rem;
 .technique-card p {
 font-size: 0.9rem;
 color: var(--text-muted);
-line-height: 1.5; /* Локальний інтервал для опису — змініть тут (наприклад, 1.4 для стиснення) */
+line-height: 1.5;
 }
-/* ================= GALLERY ================= */
+/* ================= GALLERY (paint.html тощо) ================= */
 .page-header {
 max-width: 860px;
 margin: 0 auto;
@@ -135,26 +130,26 @@ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 gap: 3rem;
 }
 .artwork {
-aspect-ratio: 4 / 5; /* Базове для десктопу */
-background: var(--bg-secondary);
-padding: 1rem;
+background: var(--bg-main);
+border: 1px solid var(--border-soft);
+border-radius: 4px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+padding: 1.5rem 1.5rem 1rem; /* Більше padding знизу для підпису */
 display: flex;
 flex-direction: column;
-align-items: center;
-justify-content: center;
-border-radius: 4px;
 }
 .artwork img {
 width: 100%;
-height: auto; /* Авто-висота для різних пропорцій /
-object-fit: contain; / Гармонійне вписування без обрізки */
+height: auto;
+object-fit: contain;
+background: var(--bg-secondary);
 }
 .artwork figcaption {
-margin-top: 0.5rem;
+margin-top: 1rem;
 font-size: 0.85rem;
 color: var(--text-muted);
 text-align: center;
-line-height: 1.4; /* Інтервал для підписів — змініть тут для стиснення */
+line-height: 1.4;
 }
 /* ================= ABOUT ================= */
 .about-section {
@@ -214,23 +209,22 @@ color: var(--accent);
 .hero h1 {
 font-size: 2.2rem;
 }
-/* Максимальна площа на смартфонах /
 .techniques-grid, .gallery-grid {
-grid-template-columns: 1fr; / Повна ширина /
-gap: 1.5rem; / Менші зазори */
+grid-template-columns: 1fr;
+gap: 1.5rem;
 }
 .technique-card, .artwork {
-padding: 0.8rem; /* Стиснути відступи */
+padding: 0.8rem;
 }
 .technique-card-image-wrapper, .artwork {
-aspect-ratio: 3 / 4; /* Портретне для домінування зображення */
+aspect-ratio: 3 / 4;
 }
 .technique-card h3 {
-font-size: 1.2rem; /* Стиснути заголовок */
+font-size: 1.2rem;
 }
 .technique-card p, .artwork figcaption {
-font-size: 0.85rem; /* Стиснути текст /
-line-height: 1.4; / Стиснутий інтервал для мобільних */
+font-size: 0.85rem;
+line-height: 1.4;
 }
 .view-link {
 font-size: 0.85rem;
