@@ -1,233 +1,266 @@
-/* ================= VARIABLES ================= /
-:root {
---bg-main: #F3F0EA;        / 60% — основний фон /
---bg-secondary: #D8D2C8;   / 30% — темніший для рамки, щоб виділяти світлі роботи */
---border-soft: #D2CBC0;
---accent: #9B7A5E;         /* 10% */
---accent-dark: #2F3A32;
---text-main: #2B2B28;
---text-muted: #6E6A63;
+<DOCUMENT filename="styles.css">
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* ================= VARIABLES ================= */
+:root {
+  --bg-main: #F3F0EA;        /* 60% */
+  --bg-secondary: #E4DED4;   /* 30% */
+  --border-soft: #D2CBC0;
+
+  --accent: #9B7A5E;         /* 10% */
+  --accent-dark: #2F3A32;
+
+  --text-main: #2B2B28;
+  --text-muted: #6E6A63;
+}
+
 /* ================= BASE ================= */
 body {
-font-family: 'Inter', sans-serif;
-background: var(--bg-main);
-color: var(--text-main);
-line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
 }
+
 a {
-color: var(--accent);
-text-decoration: none;
+  color: var(--accent);
+  text-decoration: none;
 }
+
 a:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
+
 /* ================= LANGUAGE ================= */
 .lang-switch {
-padding: 1.2rem 2rem;
-font-size: 0.85rem;
-text-align: right;
+  padding: 1.2rem 2rem;
+  font-size: 0.85rem;
+  text-align: right;
 }
+
 /* ================= HERO ================= */
 .hero {
-padding: 6rem 2rem 4rem;
+  padding: 6rem 2rem 4rem;
 }
+
 .hero-content {
-max-width: 860px;
-margin: 0 auto;
+  max-width: 860px;
+  margin: 0 auto;
 }
+
 .hero h1 {
-font-family: 'Cormorant Garamond', serif;
-font-size: 3rem;
-font-weight: 600;
-margin-bottom: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
+
 .hero-subtitle {
-font-size: 1.15rem;
-color: var(--text-muted);
-margin-bottom: 1.2rem;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
 }
+
 .skills {
-font-size: 0.95rem;
-color: var(--accent-dark);
+  font-size: 0.95rem;
+  color: var(--accent-dark);
 }
+
 /* ================= SECTIONS ================= */
 section {
-padding: 4rem 2rem;
+  padding: 4rem 2rem;
 }
+
 /* ================= GRID ================= */
 .techniques-section {
-background: var(--bg-secondary);
+  background: var(--bg-secondary);
 }
+
 .techniques-grid {
-max-width: 1100px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
 }
-/* ================= CARDS (головна) ================= */
+
+/* ================= CARDS ================= */
 .technique-card {
-background: var(--bg-main);
-border: 1px solid var(--border-soft);
-padding: 1.5rem;
-display: flex;
-flex-direction: column;
-gap: 0.8rem;
-overflow: hidden;
+  background: var(--bg-main);
+  border: 1px solid var(--border-soft);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  overflow: hidden; /* Додаємо: ховаємо частину, що виходить за межі при зумі */
 }
+
+/* Новий контейнер тільки для картинки */
 .technique-card-image-wrapper {
-width: 100%;
-aspect-ratio: 4 / 3;
-overflow: hidden;
-background: var(--bg-secondary);
-border: 1px solid var(--border-soft);
-border-radius: 4px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Легка тінь для виділення */
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden; /* Обрізаємо зум */
+  background: var(--bg-secondary);
+  border-radius: 4px; /* Опціонально, для м'якості */
 }
+
 .technique-card img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: transform 0.5s ease;
-display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Трохи повільніше для плавності */
+  display: block;
 }
+
+/* Зум тільки при hover на всю картку (через .technique-card-link) */
 .technique-card-link:hover img {
-transform: scale(1.10);
+  transform: scale(1.10); /* Можна 1.10–1.15 для сильнішого ефекту */
 }
+
+/* Підйом всієї картки при hover (залишаємо, але тепер без "стрибків" тексту) */
+.technique-card-link:hover {
+  transform: translateY(-8px);
+}
+
+.technique-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: var(--bg-secondary);
+  transition: transform 0.4s ease; /* Плавний зум при hover */
+}
+
+.technique-card:hover img {
+  transform: scale(1.08); /* Легкий зум при наведенні */
+}
+
 .technique-card h3 {
-font-family: 'Cormorant Garamond', serif;
-font-size: 1.35rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
 }
+
 .technique-card p {
-font-size: 0.9rem;
-color: var(--text-muted);
-line-height: 1.5;
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
-/* ================= GALLERY (paint.html тощо) ================= */
+
+/* ================= GALLERY ================= */
 .page-header {
-max-width: 860px;
-margin: 0 auto;
-padding: 4rem 2rem 2rem;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
 }
+
 .page-header h1 {
-font-family: 'Cormorant Garamond', serif;
-font-size: 2.4rem;
-margin-bottom: 0.8rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
 }
+
 .page-header p {
-font-size: 1rem;
-color: var(--text-muted);
+  font-size: 1rem;
+  color: var(--text-muted);
 }
-.gallery-section {
-padding: 3rem 2rem;
+
+.gallery {
+  padding: 3rem 2rem;
 }
+
 .gallery-grid {
-max-width: 1100px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 3rem;
 }
+
 .artwork {
-background: var(--bg-main);
-border: 1px solid var(--border-soft);
-border-radius: 4px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-padding: 1.5rem 1.5rem 1rem; /* Більше padding знизу для підпису */
-display: flex;
-flex-direction: column;
+  aspect-ratio: 4 / 5;
+  background: var(--bg-secondary);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .artwork img {
-width: 100%;
-height: auto;
-object-fit: contain;
-background: var(--bg-secondary);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
-.artwork figcaption {
-margin-top: 1rem;
-font-size: 0.85rem;
-color: var(--text-muted);
-text-align: center;
-line-height: 1.4;
-}
+
 /* ================= ABOUT ================= */
 .about-section {
-max-width: 760px;
-margin: 0 auto;
-font-size: 0.95rem;
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 0.95rem;
 }
+
 .bio-note {
-margin-top: 1rem;
-font-size: 0.9rem;
-color: var(--text-muted);
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
+
 /* ================= CONTACT ================= */
 .contact-section {
-max-width: 760px;
-margin: 0 auto;
+  max-width: 760px;
+  margin: 0 auto;
 }
+
 .contact-section h2 {
-font-family: 'Cormorant Garamond', serif;
-font-size: 1.8rem;
-margin-bottom: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
+
 .icon {
-width: 18px;
-height: 18px;
-stroke: var(--accent-dark);
-stroke-width: 1.5;
-fill: none;
-vertical-align: middle;
-margin-right: 0.4rem;
+  width: 18px;
+  height: 18px;
+  stroke: var(--accent-dark);
+  stroke-width: 1.5;
+  fill: none;
+  vertical-align: middle;
+  margin-right: 0.4rem;
 }
+
 /* ================= FOOTER ================= */
 footer {
-padding: 2rem;
-text-align: center;
-font-size: 0.85rem;
-color: var(--text-muted);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
+
 /* ================= LINK STYLES ================= */
 .technique-card-link {
-text-decoration: none;
-color: inherit;
-display: block;
-transition: transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
 }
+
 .technique-card-link:hover {
-transform: translateY(-8px);
+  transform: translateY(-8px); /* Підйом картки при hover */
 }
+
 .technique-card-link:hover .view-link {
-text-decoration: underline;
+  text-decoration: underline;
 }
+
 .view-link {
-color: var(--accent);
+  color: var(--accent); /* Акцентний колір для посилання */
 }
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 600px) {
-.hero h1 {
-font-size: 2.2rem;
-}
-.techniques-grid, .gallery-grid {
-grid-template-columns: 1fr;
-gap: 1.5rem;
-}
-.technique-card, .artwork {
-padding: 0.8rem;
-}
-.technique-card-image-wrapper, .artwork {
-aspect-ratio: 3 / 4;
-}
-.technique-card h3 {
-font-size: 1.2rem;
-}
-.technique-card p, .artwork figcaption {
-font-size: 0.85rem;
-line-height: 1.4;
-}
-.view-link {
-font-size: 0.85rem;
-}
+  .hero h1 {
+    font-size: 2.2rem;
+  }
 }
 </DOCUMENT>
