@@ -385,6 +385,34 @@ a.technique-card:hover img {
 
 /* Responsive */
 @media (max-width: 768px) {
+
+    .container,
+    header,
+    main,
+    footer {
+        padding: 0 24px;
+        /* Default */
+    }
+
+    /* Add "air" to gallery grid on mobile */
+    .gallery-grid,
+    .techniques-grid {
+        padding: 0 16px;
+    }
+
+    /* Fix Lang Switcher - move away from edge */
+    .lang-switch {
+        padding: 24px 24px;
+        /* More side padding */
+        justify-content: flex-end;
+    }
+
+    .lang-switch a {
+        padding: 10px;
+        /* Larger touch target */
+        display: inline-block;
+    }
+
     .hero-content h1 {
         font-size: 3rem;
     }

@@ -25,7 +25,7 @@
 <body>
 
   <nav class="lang-switch">
-    <a href="index.html">EN</a> / <a href="ua/index.html">UA</a>
+    <a href="index.html" class="active-lang">EN</a> / <a href="ua/index.html">UA</a>
   </nav>
 
   <header class="hero">
@@ -42,122 +42,96 @@
     </div>
   </header>
 
-  <main class="techniques-section">
-    <div class="techniques-grid">
+  <main>
 
-      <!-- Card 1: Pencil -->
-      <article class="technique-card">
-        <a href="gallery.html?id=pencil" class="technique-card-link">
-          <div class="technique-card-image-wrapper">
-            <img src="assets/pencil/013.jpg" alt="Pencil drawing by Sergii Kybalnyk" loading="lazy">
-          </div>
+    <section class="techniques-section">
+      <div class="techniques-grid">
+
+        <a href="gallery.html?id=pencil" class="technique-card">
+          <img src="assets/pencil/013.jpg" alt="">
           <h3>Pencil Illustration</h3>
-          <p>Academic drawing and expressive illustration</p>
-          <span class="view-link">View gallery →</span>
+          <p>Academic drawing and expressive illustration.</p>
+          <span class="card-link">View Gallery →</span>
         </a>
-      </article>
 
-      <!-- Card 2: Paint -->
-      <article class="technique-card">
-        <a href="gallery.html?id=paint" class="technique-card-link">
-          <div class="technique-card-image-wrapper">
-            <img src="assets/paint/0001.jpg" alt="Traditional painting" loading="lazy">
-          </div>
+        <a href="gallery.html?id=paint" class="technique-card">
+          <img src="assets/paint/cover.jpg" alt="">
           <h3>Oil / Acrylic / Pastel</h3>
-          <p>Traditional painting techniques</p>
-          <span class="view-link">View gallery →</span>
+          <p>Traditional painting techniques.</p>
+          <span class="card-link">View Gallery →</span>
         </a>
-      </article>
 
-      <!-- Card 3: Raster -->
-      <article class="technique-card">
-        <a href="gallery.html?id=digital" class="technique-card-link">
-          <div class="technique-card-image-wrapper">
-            <img src="assets/digital/134.jpg" alt="Raster illustration" loading="lazy">
-          </div>
+        <a href="gallery.html?id=digital" class="technique-card">
+          <img src="assets/digital/cover.jpg" alt="">
           <h3>Raster Illustration</h3>
-          <p>Digital painting and raster graphics</p>
-          <span class="view-link">View gallery →</span>
+          <p>Digital painting and commercial illustration.</p>
+          <span class="card-link">View Gallery →</span>
         </a>
-      </article>
 
-      <!-- Card 4: Vector -->
-      <article class="technique-card">
-        <a href="gallery.html?id=vector" class="technique-card-link">
-          <div class="technique-card-image-wrapper">
-            <img src="assets/digital/303.jpg" alt="Vector illustration" loading="lazy">
-          </div>
+        <a href="gallery.html?id=vector" class="technique-card">
+          <img src="assets/digital/cover.jpg" alt="">
           <h3>Vector Illustration</h3>
-          <p>Clean, scalable vector graphics</p>
-          <span class="view-link">View gallery →</span>
+          <p>Clean, scalable graphics.</p>
+          <span class="card-link">View Gallery →</span>
         </a>
-      </article>
 
-      <!-- Card 5: Design -->
-      <article class="technique-card">
-        <a href="gallery.html?id=design" class="technique-card-link">
-          <div class="technique-card-image-wrapper">
-            <img src="assets/design/0002.jpg" alt="Graphic design work" loading="lazy">
-          </div>
+        <a href="gallery.html?id=design" class="technique-card">
+          <img src="assets/design/cover.jpg" alt="">
           <h3>Graphic Design</h3>
-          <p>Logos, branding, and print layouts</p>
-          <span class="view-link">View gallery →</span>
+          <p>Logos, branding, and print layouts.</p>
+          <span class="card-link">View Gallery →</span>
         </a>
-      </article>
 
-      <!-- Card 6: 3D -->
-      <article class="technique-card">
-        <a href="gallery.html?id=3d" class="technique-card-link">
-          <div class="technique-card-image-wrapper">
-            <img src="assets/3d/cover.jpg" alt="3D graphics exploration" loading="lazy">
-          </div>
+        <a href="gallery.html?id=3d" class="technique-card">
+          <img src="assets/3d/cover.jpg" alt="">
           <h3>3D Graphics</h3>
-          <p>Explorations in 3D space</p>
-          <span class="view-link">View gallery →</span>
+          <p>Explorations in 3D space.</p>
+          <span class="card-link">View Gallery →</span>
         </a>
-      </article>
 
-    </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <p>
+        Ukrainian visual artist and designer with professional experience
+        in advertising and commercial illustration.
+      </p>
+      <p class="bio-note">
+        Wounded veteran of the russian–Ukrainian war.
+        This experience shaped my discipline and focus.
+      </p>
+    </section>
+
+    <section class="contact-section">
+      <h2>Contact</h2>
+
+      <p>
+        <a href="mailto:hyperballoid@ukr.net">
+          <svg class="icon" viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <polyline points="3,7 12,13 21,7"></polyline>
+          </svg>
+          hyperballoid@ukr.net
+        </a>
+      </p>
+
+      <p>
+        <a href="https://instagram.com/hyperballoid" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17" cy="7" r="1"></circle>
+          </svg>
+          Instagram
+        </a>
+      </p>
+    </section>
+
   </main>
 
-  <section class="about-section">
-    <p>
-      Ukrainian visual artist and designer with professional experience
-      in advertising and commercial illustration.
-    </p>
-    <p class="bio-note">
-      Wounded veteran of the russian–Ukrainian war.
-      This experience shaped my discipline and focus.
-    </p>
-  </section>
-
-  <section class="contact-section">
-    <h2>Contact</h2>
-
-    <p>
-      <a href="mailto:hyperballoid@ukr.net">
-        <svg class="icon" viewBox="0 0 24 24">
-          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-          <polyline points="3,7 12,13 21,7"></polyline>
-        </svg>
-        hyperballoid@ukr.net
-      </a>
-    </p>
-
-    <p>
-      <a href="https://instagram.com/hyperballoid" target="_blank">
-        <svg class="icon" viewBox="0 0 24 24">
-          <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-          <circle cx="12" cy="12" r="4"></circle>
-          <circle cx="17" cy="7" r="1"></circle>
-        </svg>
-        Instagram
-      </a>
-    </p>
-  </section>
-
   <script src="assets/js/footer.js"></script>
-  <script src="assets/js/script.js"></script>
+
 </body>
 
 </html>
