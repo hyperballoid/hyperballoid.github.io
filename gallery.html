@@ -104,6 +104,18 @@
                 if (imgData.description) img.dataset.description = imgData.description;
 
                 figure.appendChild(img);
+
+                // Add Caption if title exists
+                if (imgData.title || imgData.titleUA) {
+                    const caption = document.createElement("figcaption");
+                    const capTitle = isUA ? (imgData.titleUA || imgData.title) : imgData.title;
+                    caption.innerText = capTitle;
+                    if (imgData.year) {
+                        caption.innerText += ` (${imgData.year})`;
+                    }
+                    figure.appendChild(caption);
+                }
+
                 grid.appendChild(figure);
             });
         });

@@ -33,11 +33,34 @@ const galleryData = {
         "description": "Traditional painting techniques exploring color and texture.",
         "descriptionUA": "Традиційні живописні роботи.",
         "images": [
-            { "src": "assets/paint/0001.jpg", "alt": "Painting 1" },
-            { "src": "assets/paint/3003.jpg", "alt": "Painting 2" },
-            { "src": "assets/paint/3008.jpg", "alt": "Painting 3" },
-            { "src": "assets/paint/3005.jpg", "alt": "Painting 4" },
-            { "src": "assets/paint/0003.jpg", "alt": "Painting 5" },
+            {
+                "src": "assets/paint/0001.jpg",
+                "alt": "Painting 1",
+                "title": "Abstract Composition",
+                "titleUA": "Абстрактна композиція",
+                "year": "2024",
+                "material": "Oil on canvas",
+                "size": "50x70 cm"
+            },
+            {
+                "src": "assets/paint/3003.jpg",
+                "alt": "Painting 2",
+                "title": "Autumn Landscape",
+                "titleUA": "Осінній пейзаж",
+                "year": "2023",
+                "material": "Acrylic",
+                "size": "40x50 cm"
+            },
+            {
+                "src": "assets/paint/3008.jpg",
+                "alt": "Painting 3",
+                "title": "Color Study",
+                "titleUA": "Кольоровий етюд",
+                "year": "2024",
+                "material": "Gouache"
+            },
+            { "src": "assets/paint/3005.jpg", "alt": "Painting 4", "title": "Texture No.1", "year": "2023" },
+            { "src": "assets/paint/0003.jpg", "alt": "Painting 5", "title": "Texture No.2", "year": "2023" },
             { "src": "assets/paint/0009.jpg", "alt": "Painting 6" },
             { "src": "assets/paint/0002.jpg", "alt": "Painting 7" },
             { "src": "assets/paint/202.jpg", "alt": "Painting 8" },

@@ -62,8 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("gallery-grid") || document.querySelector(".gallery-grid");
     if (container) {
         container.addEventListener("click", (e) => {
-            if (e.target.tagName === "IMG") {
-                openLightbox(e.target);
+            const artwork = e.target.closest(".artwork");
+            if (artwork) {
+                const img = artwork.querySelector("img");
+                if (img) openLightbox(img);
             }
         });
     }
