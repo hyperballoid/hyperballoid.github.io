@@ -187,6 +187,24 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    /* Visual Gap between Traditional (2nd card) and Digital (3rd card) on mobile */
+    .techniques-grid .technique-card:nth-child(2) {
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    /* Optional: Add a visual separator line */
+    .techniques-grid .technique-card:nth-child(2)::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 25%;
+        width: 50%;
+        height: 1px;
+        background-color: var(--color-primary);
+        opacity: 0.3;
+    }
+
     .contact-section a {
         display: flex;
         /* Stack vertically if needed, but flex row is fine */

@@ -95,9 +95,7 @@ const galleryData = {
         "description": "Explorations in 3D space, form, and texture.",
         "descriptionUA": "Напрямок у розвитку.",
         "images": [
-            { "src": "assets/3d/cover.jpg", "alt": "3D Cover" },
-            { "src": "assets/3d/work01.jpg", "alt": "3D Study 1" },
-            { "src": "assets/3d/work02.jpg", "alt": "3D Study 2" }
+            { "src": "assets/digital/3004.jpg", "alt": "3D Study Placeholder" }
         ]
     }
 };
