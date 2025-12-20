@@ -165,17 +165,23 @@ footer {
 }
 
 a.technique-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: #fff;
     padding: 32px;
-    /* More padding inside card */
     border: 1px solid rgba(62, 59, 54, 0.05);
-    /* Very subtle border */
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     cursor: pointer;
     text-decoration: none;
     height: 100%;
-    /* Uniform height */
+}
+
+@media (max-width: 768px) {
+    a.technique-card {
+        height: auto;
+        /* Reset on mobile if needed, or keep 100% is fine */
+    }
 }
 
 .technique-card img {
@@ -205,6 +211,8 @@ a.technique-card {
     color: var(--color-primary);
     margin-bottom: 24px;
     opacity: 0.9;
+    flex-grow: 1;
+    /* Pushes bottom link down */
 }
 
 /* ... (Technique card hover unchanged) ... */
@@ -273,28 +281,44 @@ a.technique-card {
 }
 
 /* Contact Section Tweaks */
-.contact-section a {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.1rem;
-    margin: 0 16px;
-    padding: 8px 0;
-    /* Remove block padding */
-    border: none;
-    /* Remove border */
-    border-radius: 0;
-    color: var(--color-text);
-    transition: color 0.3s ease;
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
 }
 
-.contact-section a:hover {
-    background-color: transparent;
-    /* Remove bg hover */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    /* Reserve space */
+    border-radius: 4px;
+    /* Slight rounding */
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.contact-link svg {
+    color: var(--color-moss);
+    /* Icon color from palette */
+    transition: transform 0.3s ease;
+}
+
+.contact-link:hover {
+    background-color: rgba(109, 114, 94, 0.05);
+    /* Subtle moss tint BG */
     color: var(--color-accent);
-    border: none;
-    text-decoration: underline;
-    /* Add underline on hover */
+    text-decoration: none;
+}
+
+.contact-link:hover svg {
+    transform: scale(1.1);
+    color: var(--color-accent);
 }
 
 /* ... (Lightbox unchanged) ... */
