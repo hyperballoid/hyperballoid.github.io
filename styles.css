@@ -46,7 +46,19 @@ a {
 }
 
 a:hover {
-    color: var(--color-accent);
+    color: var(--color-moss);
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: var(--color-primary);
+    opacity: 0.15;
+    /* Subtle */
+    margin: 60px auto;
+    /* More vertical space */
+    width: 120px;
+    /* Minimalist width */
 }
 
 img {
@@ -54,14 +66,43 @@ img {
     display: block;
 }
 
-/* Typography */
-h1,
-h2,
-h3,
+/* Typography Refinement for Premium Feel */
+h1 {
+    font-size: 4rem;
+    /* Slightly restrained from 4.5 */
+    font-weight: 400;
+    /* Lighter weight for elegance */
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 40px;
+    color: var(--color-text);
+}
+
+h3 {
+    font-size: 1.4rem;
+    /* Reduced from 1.8 to establish clear hierarchy vs h2 */
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
 h4 {
     font-family: var(--font-heading);
     font-weight: 500;
     line-height: 1.2;
+}
+
+p,
+a {
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    /* Increased for readability */
 }
 
 /* Layout */
@@ -98,6 +139,34 @@ footer {
 
 /* ... (Hero unchanged) ... */
 
+/* Techniques Grid (Home) */
+.techniques-section {
+    padding: 0 0 80px;
+    /* More bottom breathing room */
+}
+
+.techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px;
+    /* Increased from 40px for "Premium Air" */
+    margin-bottom: 60px;
+}
+
+a.technique-card {
+    display: block;
+    background: #fff;
+    padding: 32px;
+    /* More padding inside card */
+    border: 1px solid rgba(62, 59, 54, 0.05);
+    /* Very subtle border */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    cursor: pointer;
+    text-decoration: none;
+    height: 100%;
+    /* Uniform height */
+}
+
 .technique-card img {
     width: 100%;
     aspect-ratio: 3 / 4;
@@ -109,7 +178,65 @@ footer {
     margin-bottom: 24px;
 }
 
+.technique-card h3 {
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: var(--color-text);
+    text-transform: uppercase;
+    /* Distinguish headers */
+    font-size: 1.1rem;
+    /* Smaller but uppercase tracking */
+    letter-spacing: 0.08em;
+}
+
+.technique-card p {
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+    opacity: 0.9;
+}
+
 /* ... (Technique card hover unchanged) ... */
+
+/* Gallery Grid (Inner Pages) */
+.gallery {
+    padding: 40px 0 100px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 40px;
+    /* Increased from 24px for distinct interval */
+}
+
+.artwork {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+    box-shadow: var(--shadow-soft);
+    background: #fff;
+    /* Ensure bg exists */
+    border: 1px solid rgba(62, 59, 54, 0.08);
+    /* Frame for white images */
+    padding: 12px;
+    /* Passepartout effect (visual matting) */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.artwork:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+.artwork img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    /* Inner hairline definition */
+}
 
 /* Contact Section Tweaks */
 .contact-section a {
@@ -141,7 +268,7 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
 
-    /* Unified Mobile Spacing - 16px Air everywhere */
+    /* Unified Mobile Spacing - 20px Air */
     .container,
     header,
     main,
@@ -149,15 +276,13 @@ footer {
     .hero,
     .about-section,
     .contact-section {
-        padding-left: 16px;
-        padding-right: 16px;
-        width: 100%;
-        /* Ensure full width usage */
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .hero {
         padding-top: 60px;
-        padding-bottom: 80px;
+        padding-bottom: 60px;
     }
 
     /* Fix Grid Spacing */
@@ -165,8 +290,8 @@ footer {
     .techniques-grid {
         padding: 0;
         /* Reset internal padding, let container handle it */
-        gap: 32px;
-        /* Good vertical gap */
+        gap: 48px;
+        /* Big gap on mobile too */
     }
 
     /* Fix Lang Switcher - Safe area */
@@ -178,7 +303,8 @@ footer {
     }
 
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        /* Scaled down */
         text-align: center;
         /* Ensure centering */
     }
@@ -187,27 +313,27 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    /* Visual Gap between Traditional (2nd card) and Digital (3rd card) on mobile */
+    /* Separator */
     .techniques-grid .technique-card:nth-child(2) {
-        margin-bottom: 40px;
+        margin-bottom: 0px;
+        /* Reset the manual margin, rely on grid gap */
         position: relative;
     }
 
     /* Optional: Add a visual separator line */
     .techniques-grid .technique-card:nth-child(2)::after {
-        content: "";
-        position: absolute;
-        bottom: -20px;
-        left: 25%;
-        width: 50%;
-        height: 1px;
-        background-color: var(--color-primary);
-        opacity: 0.3;
+        content: none;
+        /* Remove manual CSS line, we use <hr> now */
     }
 
+    .divider {
+        margin: 40px auto;
+        width: 80px;
+    }
+
+    /* Contacts */
     .contact-section a {
         display: flex;
-        /* Stack vertically if needed, but flex row is fine */
         justify-content: center;
         margin: 12px auto;
     }
