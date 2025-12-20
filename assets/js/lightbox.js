@@ -1,15 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Inject Lightbox HTML with Info Section
+    // Inject Minimal Lightbox HTML (No Text)
     const lightboxHtml = `
         <div id="lightbox" class="lightbox">
             <button class="lightbox-close" aria-label="Close">&times;</button>
             <div class="lightbox-content">
                 <img id="lightbox-img" src="" alt="View">
-                <div class="lightbox-info" id="lightbox-info">
-                    <h3 id="lb-title"></h3>
-                    <p id="lb-meta" class="lb-meta"></p>
-                    <p id="lb-desc" class="lb-desc"></p>
-                </div>
             </div>
         </div>
     `;
@@ -17,36 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
-    const lbTitle = document.getElementById("lb-title");
-    const lbMeta = document.getElementById("lb-meta");
-    const lbDesc = document.getElementById("lb-desc");
     const closeBtn = document.querySelector(".lightbox-close");
 
     // Open Lightbox
-    const openLightbox = (imgElement) => {
-        lightboxImg.src = imgElement.src;
-
-        // Handle Metadata
-        const d = imgElement.dataset;
-        const parts = [];
-        if (d.material) parts.push(d.material);
-        if (d.size) parts.push(d.size);
-        if (d.year) parts.push(d.year);
-
-        lbTitle.textContent = d.title || "";
-        lbMeta.textContent = parts.join(" · ");
-        lbDesc.textContent = d.description || "";
-
-        // Hide info box if empty
-        const infoBox = document.getElementById("lightbox-info");
-        if (!d.title && parts.length === 0 && !d.description) {
-            infoBox.style.display = "none";
-        } else {
-            infoBox.style.display = "block";
-        }
-
+    const openLightbox = (imgSource) => {
+        lightboxImg.src = imgSource;
         lightbox.classList.add("active");
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // Lock scroll
     };
 
     // Close Lightbox
@@ -54,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.classList.remove("active");
         setTimeout(() => {
             lightboxImg.src = "";
-            document.body.style.overflow = '';
+            document.body.style.overflow = ''; // Unlock scroll
         }, 300);
     };
 
@@ -65,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const artwork = e.target.closest(".artwork");
             if (artwork) {
                 const img = artwork.querySelector("img");
-                if (img) openLightbox(img);
+                if (img) openLightbox(img.src);
             }
         });
     }
@@ -73,12 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event Listeners for Close
     closeBtn.addEventListener("click", closeLightbox);
 
-    // Close on click outside
+    // Close on click OUTSIDE image (backdrop)
     lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
             closeLightbox();
         }
     });
+
+    // Close on click ON image (as requested for easy exit/toggle)
+    lightboxImg.addEventListener("click", closeLightbox);
 
     // Close on Escape key
     document.addEventListener("keydown", (e) => {
