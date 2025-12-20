@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery — Sergii Kybalnyk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensure footer sticks to bottom if content is short */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="lang-switch" id="lang-switch">
+        <!-- Injected by JS -->
+    </nav>
+
+    <header class="page-header" id="page-header">
+        <!-- Injected by JS -->
+        <h1 id="gallery-title"></h1>
+        <p id="gallery-description"></p>
+    </header>
+
+    <main class="gallery">
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- Injected by JS -->
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/gallery-data.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
+            const lang = params.get("lang");
+            const isUA = lang === "ua";
+
+            // 1. Validate ID
+            if (!id || !galleryData[id]) {
+                document.getElementById("page-header").innerHTML = "<h1>Gallery not found</h1>";
+                return;
+            }
+
+            const data = galleryData[id];
+
+            // 2. Set Language Switcher
+            const switchContainer = document.getElementById("lang-switch");
+            if (isUA) {
+                // Active is UA, link to EN
+                switchContainer.innerHTML = `<a href="gallery.html?id=${id}">EN</a> / <a href="gallery.html?id=${id}&lang=ua" class="active-lang">UA</a>`;
+                document.documentElement.lang = "uk";
+            } else {
+                // Active is EN, link to UA
+                switchContainer.innerHTML = `<a href="gallery.html?id=${id}" class="active-lang">EN</a> / <a href="gallery.html?id=${id}&lang=ua">UA</a>`;
+                document.documentElement.lang = "en";
+            }
+
+            // 3. Set Content
+            const title = isUA ? (data.titleUA || data.title) : data.title;
+            const desc = isUA ? (data.descriptionUA || data.description) : data.description;
+
+            document.title = `${title} — Sergii Kybalnyk`;
+            document.getElementById("gallery-title").textContent = title;
+            document.getElementById("gallery-description").textContent = desc;
+
+            // 4. Render Grid
+            const grid = document.getElementById("gallery-grid");
+            const images = data.images || [];
+
+            images.forEach(imgData => {
+                const figure = document.createElement("figure");
+                figure.className = "artwork";
+
+                const img = document.createElement("img");
+                img.src = imgData.src;
+                img.alt = imgData.alt;
+                img.loading = "lazy";
+
+                figure.appendChild(img);
+                grid.appendChild(figure);
+            });
+        });
+    </script>
+</body>
+
+</html>
