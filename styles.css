@@ -157,12 +157,20 @@ footer {
 
 .techniques-grid {
     display: grid;
-    /* Force 3 columns on desktop/laptop as requested */
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     margin-bottom: 60px;
     grid-auto-rows: 1fr;
+    /* Equal height rows */
 }
+
+/* Laptop / Desktop adjustments */
+@media (max-width: 1200px) {
+    .techniques-grid {
+        gap: 32px;
+    }
+}
+
 
 a.technique-card {
     display: flex;
@@ -187,6 +195,7 @@ a.technique-card {
     .techniques-grid {
         grid-template-columns: repeat(2, 1fr);
         /* 2 columns on tablet */
+        gap: 24px;
     }
 }
 
@@ -194,10 +203,10 @@ a.technique-card {
     .techniques-grid {
         grid-template-columns: 1fr;
         /* 1 column on mobile */
+        gap: 24px;
     }
 
     a.technique-card {
-        height: auto;
         min-height: auto;
     }
 }
@@ -214,7 +223,6 @@ a.technique-card {
 
 .technique-card h3 {
     font-family: var(--font-heading);
-    /* Restore Garamond */
     margin-top: 16px;
     margin-bottom: 12px;
     color: var(--color-text);
@@ -222,7 +230,8 @@ a.technique-card {
     font-size: 1.1rem;
     letter-spacing: 0.08em;
     min-height: 2.4em;
-    /* Reserve space for 2 lines to align single lines */
+    /* Reserve space for 2 lines */
+    line-height: 1.2;
 }
 
 .technique-card p {
