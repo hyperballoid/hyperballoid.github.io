@@ -44,6 +44,7 @@
 
     <!-- Scripts -->
     <script src="assets/js/gallery-data.js"></script>
+    <script src="assets/js/lightbox.js"></script>
     <script src="assets/js/footer.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -92,6 +93,13 @@
                 img.src = imgData.src;
                 img.alt = imgData.alt;
                 img.loading = "lazy";
+
+                // DATA attributes for Lightbox
+                if (imgData.title) img.dataset.title = imgData.title;
+                if (imgData.material) img.dataset.material = imgData.material;
+                if (imgData.size) img.dataset.size = imgData.size;
+                if (imgData.year) img.dataset.year = imgData.year;
+                if (imgData.description) img.dataset.description = imgData.description;
 
                 figure.appendChild(img);
                 grid.appendChild(figure);

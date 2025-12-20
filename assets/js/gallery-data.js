@@ -5,8 +5,22 @@ const galleryData = {
         "description": "Academic drawing and expressive pencil works, focusing on anatomy and texture.",
         "descriptionUA": "Академічний рисунок та ілюстрація.",
         "images": [
-            { "src": "assets/pencil/013.jpg", "alt": "Pencil illustration 1" },
-            { "src": "assets/pencil/018.jpg", "alt": "Pencil illustration 2" },
+            {
+                "src": "assets/pencil/013.jpg",
+                "alt": "Pencil illustration 1",
+                "title": "Портрет Героя",
+                "material": "Папір, олівець",
+                "size": "A3",
+                "year": "2024"
+            },
+            {
+                "src": "assets/pencil/018.jpg",
+                "alt": "Pencil illustration 2",
+                "title": "Етюд рук",
+                "material": "Папір, графіт",
+                "size": "30x40 см",
+                "year": "2023"
+            },
             { "src": "assets/pencil/012.jpg", "alt": "Pencil illustration 3" },
             { "src": "assets/pencil/010.jpg", "alt": "Pencil illustration 4" },
             { "src": "assets/pencil/019.jpg", "alt": "Pencil illustration 5" },
