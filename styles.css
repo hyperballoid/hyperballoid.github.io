@@ -1,26 +1,31 @@
 :root {
-    /* Soft Autumn Palette */
+    /* Soft Autumn Palette - Refined */
     --color-bg: #F5F2EB;
-    /* Light warm beige (Canvas) */
-    --color-text: #3E3B36;
-    /* Deep warm grey */
+    --color-text: #2A2824;
+    /* Darker, higher contrast for premium feel */
     --color-primary: #786D5F;
-    /* Muted earth tone */
     --color-accent: #9A5B4F;
-    /* Muted Rust/Terracotta */
     --color-moss: #6D725E;
-    /* Muted Moss Green */
     --color-gold: #C2A878;
-    /* Muted Gold/Bronze */
 
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
 
-    --spacing-unit: 8px;
-    --container-width: 1200px;
+    /* Spacing System - Premium Rhythm */
+    --spacing-xs: 4px;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 32px;
+    --spacing-xl: 64px;
+    --spacing-xxl: 120px;
 
-    --shadow-soft: 0 4px 20px rgba(62, 59, 54, 0.08);
-    --shadow-hover: 0 8px 30px rgba(62, 59, 54, 0.12);
+    --container-width: 1320px;
+    /* Wider for modern desktop */
+    --container-padding: 40px;
+
+    --shadow-soft: 0 10px 40px rgba(62, 59, 54, 0.04);
+    --shadow-hover: 0 20px 60px rgba(62, 59, 54, 0.08);
+    --border-light: 1px solid rgba(62, 59, 54, 0.08);
 }
 
 /* Reset & Base */
@@ -35,8 +40,10 @@ body {
     color: var(--color-text);
     font-family: var(--font-body);
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.8;
+    /* Increased line-height for elegance */
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -49,71 +56,52 @@ a:hover {
     color: var(--color-moss);
 }
 
-.divider {
-    border: none;
-    height: 1px;
-    background-color: var(--color-primary);
-    opacity: 0.15;
-    /* Subtle */
-    margin: 60px auto;
-    /* More vertical space */
-    width: 120px;
-    /* Minimalist width */
-}
-
 img {
     max-width: 100%;
     display: block;
 }
 
-/* Typography - Soft Autumn Hierarchy */
-h1 {
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
     font-family: var(--font-heading);
-    font-size: 3.5rem;
     font-weight: 500;
-    /* Restored weight */
+    line-height: 1.1;
     color: var(--color-text);
-    margin-bottom: 16px;
-    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    /* Fluid typography */
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-m);
 }
 
 h2 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    /* Distinct section header */
-    font-weight: 500;
-    margin-bottom: 40px;
-    color: var(--color-text);
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    margin-bottom: var(--spacing-xl);
 }
 
 h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    /* Stronger for cards */
-    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
+    margin-bottom: var(--spacing-s);
 }
 
-h4 {
-    font-family: var(--font-heading);
-    font-weight: 500;
-    line-height: 1.2;
+p {
+    margin-bottom: var(--spacing-m);
 }
 
-p.bio-note {
+.bio-note {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
-    /* Larger for "About" highlights */
+    font-size: 1.4rem;
     font-style: italic;
     color: var(--color-moss);
-    margin-top: 18px;
-}
-
-p,
-a {
-    font-family: var(--font-body);
-    font-weight: 300;
-    line-height: 1.7;
-    /* Increased for readability */
+    margin-top: var(--spacing-l);
+    max-width: 800px;
 }
 
 /* Layout */
@@ -124,23 +112,19 @@ footer {
     width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--container-padding);
 }
 
-/* Navigation / Lang Switch */
+/* Header & Hero */
 .lang-switch {
-    padding: 24px 0;
+    padding: var(--spacing-l) 0;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    gap: 8px;
-    /* Use gap instead of space chars if possible, but structure has slash text. */
-    font-size: 0.9rem;
+    gap: var(--spacing-s);
+    font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.05em;
     color: var(--color-primary);
-    white-space: nowrap;
-    /* Prevent wrapping */
 }
 
 .lang-switch .active-lang {
@@ -148,210 +132,144 @@ footer {
     border-bottom: 1px solid var(--color-accent);
 }
 
-/* ... (Hero unchanged) ... */
+.hero {
+    padding: var(--spacing-xl) 0 var(--spacing-xxl);
+    /* Generous whitespace */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+    /* Ensure impact on load */
+}
 
-/* Techniques Grid (Home) */
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    max-width: 600px;
+}
+
+.skills {
+    margin-top: var(--spacing-l);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-moss);
+    opacity: 0.8;
+}
+
+/* Techniques Grid - Premium Cards */
 .techniques-section {
-    padding: 0 0 80px;
+    padding-bottom: var(--spacing-xxl);
 }
 
 .techniques-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    margin-bottom: 60px;
+    /* Airy gap */
     grid-auto-rows: 1fr;
-    /* Equal height rows */
 }
 
-/* Laptop / Desktop adjustments */
-@media (max-width: 1200px) {
-    .techniques-grid {
-        gap: 32px;
-    }
-}
-
-
-a.technique-card {
+.technique-card {
+    background: #fff;
+    padding: 40px;
+    /* Luxurious inner padding */
+    border: var(--border-light);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #fff;
-    padding: 32px;
-    border: 1px solid rgba(62, 59, 54, 0.05);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    cursor: pointer;
-    text-decoration: none;
-    height: 100%;
-    min-height: 480px;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-@media (max-width: 1024px) {
-    /* Tablet/Small Laptop tweak if needed, but user wants 2 rows of 3 on laptop usually */
-    /* If screen is too small for 3 columns, we might wrap, but assuming laptop > 1024 */
+.technique-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-@media (max-width: 900px) {
-    .techniques-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 columns on tablet */
-        gap: 24px;
-    }
+.technique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
 }
 
-@media (max-width: 600px) {
-    .techniques-grid {
-        grid-template-columns: 1fr;
-        /* 1 column on mobile */
-        gap: 24px;
-    }
-
-    a.technique-card {
-        min-height: auto;
-    }
+.technique-card:hover::before {
+    transform: scaleX(1);
 }
 
 .technique-card img {
     width: 100%;
-    aspect-ratio: 3 / 4;
-    height: auto;
+    aspect-ratio: 4 / 5;
+    /* Modern portrait ratio */
     object-fit: cover;
-    filter: grayscale(20%) sepia(10%);
-    transition: filter 0.4s ease;
-    margin-bottom: 24px;
-}
-
-.technique-card h3 {
-    font-family: var(--font-heading);
-    margin-top: 16px;
-    margin-bottom: 12px;
-    color: var(--color-text);
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
-    min-height: 2.4em;
-    /* Reserve space for 2 lines */
-    line-height: 1.2;
-}
-
-.technique-card p {
-    font-size: 0.95rem;
-    color: var(--color-primary);
-    margin-bottom: 24px;
-    opacity: 0.9;
-    flex-grow: 1;
-}
-
-/* Technique Card Hover */
-.technique-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(109, 114, 94, 0.3);
+    margin-bottom: var(--spacing-l);
+    filter: grayscale(15%) sepia(5%);
+    transition: filter 0.5s ease;
 }
 
 .technique-card:hover img {
-    filter: grayscale(0%) sepia(0%);
+    filter: none;
 }
 
-.technique-card:hover h3 {
-    color: var(--color-accent);
+.technique-card h3 {
+    font-size: 1.4rem;
+    margin-top: auto;
+}
+
+.technique-card p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-m);
+    line-height: 1.6;
 }
 
 .card-link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--color-moss);
+    font-size: 0.85rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    align-self: flex-start;
-    margin-top: auto;
+    letter-spacing: 0.1em;
+    color: var(--color-moss);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-/* Gallery Grid ("Tetris" / Masonry Layout) */
-.gallery {
-    padding: 40px 0 100px;
+/* About & Contact */
+.about-section {
+    padding-bottom: var(--spacing-xxl);
+    max-width: 900px;
+    /* Narrower for reading */
 }
 
-.gallery-grid {
-    display: block;
-    /* Disable Grid for Masonry */
-    column-count: 3;
-    column-gap: 40px;
+.about-section p {
+    font-size: 1.15rem;
 }
 
-@media (max-width: 1024px) {
-    .gallery-grid {
-        column-count: 2;
-    }
-}
-
-@media (max-width: 600px) {
-    .gallery-grid {
-        column-count: 1;
-    }
-}
-
-/* Gallery Grid Artwork Frame */
-.artwork {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: var(--shadow-soft);
-    background-color: #E3E1DB;
-    border: none;
-    padding: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    /* Masonry Support */
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 40px;
-    /* Gap for bottom */
-    break-inside: avoid;
-
-    /* Flex content for inner alignment */
-    /* Note: display flex conflicts with inline-block for masonry if not careful,
-       but we can use a wrapper or just trust block flow inside.
-       Removing flex-direction: column from top level ensures break-inside works better */
-}
-
-.artwork:hover {
-    box-shadow: 0 10px 25px rgba(62, 59, 54, 0.15);
-    transform: translateY(-4px);
-    background-color: #D8D6CF;
-    /* Slightly darker on hover */
-}
-
-.artwork img {
-    width: 100%;
-    height: auto;
-    /* Allow natural height in grid or fixed? */
-    aspect-ratio: auto;
-    /* Let masonry/grid handle it or square? grid is auto-fill. let's auto height */
-    object-fit: contain;
-    background: #fff;
-    /* Inner photo bg if transparency? usually photos are full. */
-    display: block;
-    margin-bottom: 12px;
-}
-
-.artwork figcaption {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    color: var(--color-text);
+.contact-section {
+    padding-bottom: var(--spacing-xxl);
     text-align: center;
-    margin-top: auto;
-    /* Push to bottom */
-    padding-top: 8px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Contact Section Tweaks */
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 32px;
+    gap: var(--spacing-l);
     flex-wrap: wrap;
+    margin-top: var(--spacing-l);
 }
 
 .contact-link {
@@ -359,32 +277,53 @@ a.technique-card {
     align-items: center;
     gap: 12px;
     font-size: 1.1rem;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    /* Reserve space */
-    border-radius: 4px;
-    /* Slight rounding */
     color: var(--color-text);
+    padding: 12px 24px;
+    border: var(--border-light);
+    background: #fff;
     transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.contact-link svg {
-    color: var(--color-moss);
-    /* Icon color from palette */
-    transition: transform 0.3s ease;
 }
 
 .contact-link:hover {
-    background-color: rgba(109, 114, 94, 0.05);
-    /* Subtle moss tint BG */
+    border-color: var(--color-moss);
+    box-shadow: var(--shadow-soft);
     color: var(--color-accent);
-    text-decoration: none;
 }
 
-.contact-link:hover svg {
-    transform: scale(1.1);
-    color: var(--color-accent);
+/* Gallery (Masonry) */
+.gallery {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xxl);
+}
+
+.gallery-grid {
+    column-count: 3;
+    column-gap: 40px;
+}
+
+.artwork {
+    break-inside: avoid;
+    margin-bottom: 40px;
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+.artwork:hover {
+    opacity: 0.95;
+    cursor: zoom-in;
+}
+
+.artwork img {
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-soft);
+}
+
+.artwork figcaption {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    margin-top: 8px;
+    text-align: left;
 }
 
 /* Lightbox */
@@ -395,7 +334,6 @@ a.technique-card {
     width: 100%;
     height: 100%;
     background: rgba(245, 242, 235, 0.98);
-    /* Palette bg */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -410,110 +348,95 @@ a.technique-card {
     pointer-events: auto;
 }
 
-.lightbox-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .lightbox img {
-    max-width: 100%;
-    max-height: 85vh;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    border-radius: 2px;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
 }
 
 .lightbox-close {
     position: absolute;
     top: 30px;
     right: 30px;
+    font-size: 2rem;
+    color: var(--color-text);
     background: none;
     border: none;
-    font-size: 3rem;
-    color: var(--color-text);
     cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
-    z-index: 2001;
 }
 
-.lightbox-close:hover {
-    color: var(--color-accent);
-    transform: rotate(90deg);
-}
+/* ----------------------------------------------------- */
+/* RESPONSIVE ADAPTATIONS                               */
+/* ----------------------------------------------------- */
 
-/* Responsive */
-@media (max-width: 768px) {
-
-    /* Unified Mobile Spacing - 20px Air */
-    .container,
-    header,
-    main,
-    footer,
-    .hero,
-    .about-section,
-    .contact-section {
-        padding-left: 20px;
-        padding-right: 20px;
+/* Laptop (Small Desktops ~1280px) */
+@media (max-width: 1366px) {
+    :root {
+        --container-width: 1140px;
     }
 
-    .hero {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-
-    /* Fix Grid Spacing */
-    .gallery-grid,
     .techniques-grid {
-        padding: 0;
-        /* Reset internal padding, let container handle it */
-        gap: 48px;
-        /* Big gap on mobile too */
+        gap: 32px;
     }
 
-    /* Fix Lang Switcher - Safe area */
-    .lang-switch {
-        padding: 16px 24px;
-        /* Move away from top/right edge slightly */
-        justify-content: flex-end;
-        width: 100%;
+    .technique-card {
+        padding: 32px;
+    }
+}
+
+/* Tablet Landscape (iPad Pro / Small Laptops) */
+@media (max-width: 1024px) {
+    :root {
+        --container-width: 100%;
+        --container-padding: 32px;
     }
 
-    .hero-content h1 {
-        font-size: 2.8rem;
-        /* Scaled down */
-        text-align: center;
-        /* Ensure centering */
+    .techniques-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 Columns */
+    }
+
+    .gallery-grid {
+        column-count: 2;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 0 60px;
+        min-height: auto;
+    }
+
+    h1 {
+        font-size: 2.75rem;
+    }
+}
+
+/* Smartphone (Mobile) */
+@media (max-width: 600px) {
+    :root {
+        --container-padding: 20px;
+        --spacing-xxl: 80px;
     }
 
     .techniques-grid {
         grid-template-columns: 1fr;
+        /* 1 Column */
+        gap: 32px;
+        /* Sufficient visual separation */
     }
 
-    /* Separator */
-    .techniques-grid .technique-card:nth-child(2) {
-        margin-bottom: 0px;
-        /* Reset the manual margin, rely on grid gap */
-        position: relative;
+    .gallery-grid {
+        column-count: 1;
     }
 
-    /* Optional: Add a visual separator line */
-    .techniques-grid .technique-card:nth-child(2)::after {
-        content: none;
-        /* Remove manual CSS line, we use <hr> now */
+    .contact-links {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .divider {
-        margin: 40px auto;
-        width: 80px;
-    }
-
-    /* Contacts */
-    .contact-section a {
-        display: flex;
+    .contact-link {
         justify-content: center;
-        margin: 12px auto;
     }
 }
