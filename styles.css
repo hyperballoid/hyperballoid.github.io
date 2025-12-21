@@ -101,11 +101,11 @@ h4 {
 
 p.bio-note {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     /* Larger for "About" highlights */
     font-style: italic;
     color: var(--color-moss);
-    margin-top: 24px;
+    margin-top: 18px;
 }
 
 p,
